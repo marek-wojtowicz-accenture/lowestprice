@@ -1,0 +1,20 @@
+{
+    "name": "marek-wojtowicz-accenture/lowestprice",
+    "description": "Moduł LowestPrice dla Magento (monitorowanie najniższych cen)",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "proprietary"
+    ],
+    "require": {
+        "php": "~7.4.0 || ~8.1.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Magento\\CRM\\": ""
+        }
+    }
+}

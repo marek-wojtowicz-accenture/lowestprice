@@ -1,0 +1,10 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="lowest_price">
+        <job name="update_lowest_product_price" instance="Magento\LowestPrice\Cron\UpdateLowestPrice" method="execute">
+            <schedule>12 0 * * *</schedule>
+        </job>
+        <job name="delete_lowest_product_price" instance="Magento\LowestPrice\Cron\DeleteLowestPrice" method="execute">
+            <schedule>15 0 * * *</schedule>
+        </job>
+    </group>
+</config>

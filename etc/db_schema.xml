@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="lowest_product_price" resource="default" engine="innodb" comment="Lowest Product Price Table">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="false" comment="Product ID"/>
+        <column xsi:type="decimal" name="price" precision="12" scale="4" nullable="false" comment="Price"/>
+        <column xsi:type="date" name="date" nullable="false" comment="Entry Date"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="LOWEST_PRODUCT_PRICE_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID" table="lowest_product_price" column="product_id" referenceTable="catalog_product_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+        <constraint xsi:type="unique" referenceId="LOWEST_PRODUCT_PRICE_PRODUCT_ID_DATE_UNIQUE">
+            <column name="product_id"/>
+            <column name="date"/>
+        </constraint>
+    </table>
+</schema>

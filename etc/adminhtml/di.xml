@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="MagentoLowestPriceGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Magento\LowestPrice\Model\ResourceModel\LowestPrice\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">MagentoLowestPriceGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MagentoLowestPriceGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\LowestPrice\Model\ResourceModel\LowestPrice\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">lowest_product_price</argument>
+            <argument name="eventPrefix" xsi:type="string">magento_lowest_price_lowest_price_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">magento_lowest_price_lowest_price_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Magento\LowestPrice\Model\ResourceModel\LowestPrice</argument>
+        </arguments>
+    </type>
+</config>

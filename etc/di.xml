@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\LowestPrice\Model\ResourceModel\LowestPrice\CollectionFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">Magento\LowestPrice\Model\ResourceModel\LowestPrice\Collection</argument>
+        </arguments>
+    </type>
+    <preference for="Magento\LowestPrice\Api\LowestPriceRepositoryInterface" type="Magento\LowestPrice\Model\LowestPriceRepository"/>
+    <preference for="Magento\LowestPrice\Api\Data\LowestPriceInterface" type="Magento\LowestPrice\Model\LowestPrice"/>
+    <preference for="Magento\LowestPrice\Api\Data\LowestPriceSearchResultInterface" type="Magento\LowestPrice\Model\LowestPriceSearchResult"/>
+    <preference for="Magento\LowestPrice\Api\ConfigInterface" type="Magento\LowestPrice\Model\Config"/>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="magento_lowest_price_lowest_price_listing_data_source" xsi:type="string">Magento\LowestPrice\Model\ResourceModel\LowestPrice\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Catalog\Pricing\Render\FinalPriceBox">
+        <plugin name="magento_lowestprice_product_price_plugin"
+                type="Magento\LowestPrice\Plugin\ProductPricePlugin" />
+    </type>
+
+
+</config>
